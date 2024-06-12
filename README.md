@@ -1,6 +1,6 @@
 # SB_ORM
 
-`sb_orm` 是一个简单灵活的 Python 库，使用 SQLAlchemy ORM 与 MySQL 数据库进行交互。它提供了一个易于使用的接口，用于执行常见的数据库操作，例如 `SELECT`、`INSERT`、`UPDATE` 和 `DELETE`。
+`sb-orm` 是一个简单灵活的 Python 库，使用 SQLAlchemy ORM 与 MySQL 数据库进行交互。它提供了一个易于使用的接口，用于执行常见的数据库操作，例如 `SELECT`、`INSERT`、`UPDATE` 和 `DELETE`。
 
 ## 特性
 
@@ -11,10 +11,10 @@
 
 ## 安装
 
-你可以使用 `pip` 从 PyPI 安装 `sb_orm`：
+你可以使用 `pip` 从 PyPI 安装 `sb-orm`：
 
 ```bash
-pip install sb_orm
+pip install sb-orm
 ```
 
 ## 使用
@@ -63,4 +63,4 @@ query.delete()
 欢迎贡献！请 fork 仓库并提交 pull request 以进行任何改进或错误修复。
 
 ## 联系
-如有任何问题或疑问，请在 GitHub 仓库 上打开 issue。
+如有任何问题或疑问，请在 GitHub https://github.com/idcim/sb_orm 仓库 上打开 issue。

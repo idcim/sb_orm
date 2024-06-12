@@ -1,10 +1,10 @@
 Metadata-Version: 2.1
 Name: sb_orm
-Version: 0.0.1
+Version: 0.0.2
 Summary: A python stupid mysql orm
 Author-email: idcim <rogermmg@gmail.com>
-Project-URL: Homepage, https://github.com/pypa/sampleproject
-Project-URL: Bug Tracker, https://github.com/pypa/sampleproject/issues
+Project-URL: Homepage, https://github.com/idcim/sb_orm
+Project-URL: Bug Tracker, https://github.com/idcim/sb_orm/issues
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
@@ -77,4 +77,4 @@ query.delete()
 欢迎贡献！请 fork 仓库并提交 pull request 以进行任何改进或错误修复。
 
 ## 联系
-如有任何问题或疑问，请在 GitHub 仓库 上打开 issue。
+如有任何问题或疑问，请在 GitHub https://github.com/idcim/sb_orm 仓库 上打开 issue。
