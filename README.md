@@ -1,6 +1,6 @@
 # SB_ORM
 
-`sb-orm` 是一个简单灵活的 Python 库，使用 SQLAlchemy ORM 与 MySQL 数据库进行交互。它提供了一个易于使用的接口，用于执行常见的数据库操作，例如 `SELECT`、`INSERT`、`UPDATE` 和 `DELETE`。
+`sb_orm` 是一个简单灵活的 Python 库，使用 SQLAlchemy ORM 与 MySQL 数据库进行交互。它提供了一个易于使用的接口，用于执行常见的数据库操作，例如 `SELECT`、`INSERT`、`UPDATE` 和 `DELETE`。
 
 ## 特性
 
@@ -30,32 +30,29 @@ DB_PREFIX: (可选) 表名前缀
 ### 基本操作
 初始化数据库会话
 ```python
-from sb_orm import DatabaseSession
+from sb_orm.Db import DatabaseSession
 
 db_session = DatabaseSession()
-```
+
 ### 查询数据
-```python
+
 query = db_session.db('your_table_name').where({'column_name': 'value'}).order_by('id', descending=True).limit(10)
 results = query.select()
 print(results)
-```
 
 ### 插入数据
-```python
+
 data = {'column1': 'value1', 'column2': 'value2'}
 db_session.db('your_table_name').insert(data)
 
-```
 ### 更新数据
-```python
+
 query = db_session.db('your_table_name').where({'id': 1})
 data = {'column1': 'new_value'}
 query.update(data)
 
-```
 ### 删除数据
-```python
+
 query = db_session.db('your_table_name').where({'id': 1})
 query.delete()
 ```

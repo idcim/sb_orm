@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
-Name: sb_orm
-Version: 0.0.2
+Name: sb-orm
+Version: 0.0.3
 Summary: A python stupid mysql orm
 Author-email: idcim <rogermmg@gmail.com>
 Project-URL: Homepage, https://github.com/idcim/sb_orm
@@ -25,10 +25,10 @@ License-File: LICENSE
 
 ## 安装
 
-你可以使用 `pip` 从 PyPI 安装 `sb_orm`：
+你可以使用 `pip` 从 PyPI 安装 `sb-orm`：
 
 ```bash
-pip install sb_orm
+pip install sb-orm
 ```
 
 ## 使用
@@ -44,32 +44,29 @@ DB_PREFIX: (可选) 表名前缀
 ### 基本操作
 初始化数据库会话
 ```python
-from sb_orm import DatabaseSession
+from sb_orm.Db import DatabaseSession
 
 db_session = DatabaseSession()
-```
+
 ### 查询数据
-```python
+
 query = db_session.db('your_table_name').where({'column_name': 'value'}).order_by('id', descending=True).limit(10)
 results = query.select()
 print(results)
-```
 
 ### 插入数据
-```python
+
 data = {'column1': 'value1', 'column2': 'value2'}
 db_session.db('your_table_name').insert(data)
 
-```
 ### 更新数据
-```python
+
 query = db_session.db('your_table_name').where({'id': 1})
 data = {'column1': 'new_value'}
 query.update(data)
 
-```
 ### 删除数据
-```python
+
 query = db_session.db('your_table_name').where({'id': 1})
 query.delete()
 ```
