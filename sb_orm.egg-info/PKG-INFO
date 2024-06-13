@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: sb_orm
-Version: 0.1.0
+Version: 0.1.1
 Summary: A python stupid mysql orm
 Home-page: https://github.com/idcim/sb_orm
 Author: idcim
@@ -52,7 +52,7 @@ DB_PREFIX: (可选) 表名前缀
 ```
 
 ### 基本操作
-初始化数据库会话
+#### 数据库操作示例
 ```python
 from sb_orm.Db import DatabaseSession
 
@@ -80,6 +80,38 @@ query.update(data)
 query = db_session.db('your_table_name').where({'id': 1})
 query.delete()
 ```
+#### 任务管理使用示例
+```python
+import asyncio
+from sb_orm.tasks import create_task, perform_task, get_task_status
+
+# 示例任务数据
+task_data = {
+    'target_url': 'http://example.com',
+    'method': 'GET',
+    'post_body': None,
+    'header': None,
+    'frequency': 2,  # 每次请求之间的间隔秒数
+    'times': 3,  # 总请求次数
+    'callback_url': 'http://callback.com'
+}
+
+# 创建任务
+task = create_task(task_data)
+print(f"Created task with ID: {task.id}")
+
+# 执行任务的异步函数
+async def run_task(task_id):
+    await perform_task(task_id)
+    updated_task = get_task_status(task_id)
+    print(f"Task ID {task_id} status: {updated_task['status']}")
+    print(f"Task completed {updated_task['times_completed']} times")
+
+# 运行异步任务
+asyncio.run(run_task(task.id))
+
+```
+
 ## 贡献
 欢迎贡献！请 fork 仓库并提交 pull request 以进行任何改进或错误修复。
 

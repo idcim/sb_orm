@@ -1,8 +1,8 @@
 import aiohttp
 import asyncio
 from datetime import datetime
-from sb_orm.Db import DatabaseSession
-from sb_orm.models import Task, TaskStatus
+from Db import DatabaseSession
+from models import Task, TaskStatus
 
 db_session = DatabaseSession()
 
