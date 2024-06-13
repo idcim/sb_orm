@@ -2,13 +2,12 @@ from os import getenv
 from sqlalchemy import create_engine, Table, MetaData, select, desc, asc
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.sql import delete, insert, update, and_
-from typing import Dict, Any, Optional, List
+from typing import Dict, Any, Optional, List, ContextManager
 from dotenv import load_dotenv
 
 load_dotenv()
 
 __all__ = ["DatabaseSession", "DatabaseQuery"]
-
 DB_URL_TEMPLATE = "mysql+pymysql://{}:{}@{}/{}?charset=utf8mb4"
 
 
@@ -92,12 +91,19 @@ class DatabaseSession:
             ))
             self.Session = sessionmaker(bind=self.engine)
 
+    def get_session(self) -> ContextManager:
+        session = self.Session()
+        try:
+            yield session
+        finally:
+            session.close()
+
     @staticmethod
     def db(table_name: str) -> DatabaseQuery:
         instance = DatabaseSession()
-        session = instance.Session()
         table = get_table(table_name, instance.engine)
-        return DatabaseQuery(session, table)
+        with instance.get_session() as session:
+            return DatabaseQuery(session, table)
 
 
 def get_table(table_name: str, engine) -> Table:

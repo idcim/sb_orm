@@ -1,6 +1,6 @@
 [project]
-name = "sb-orm"
-version = "0.0.3"
+name = "sb_orm"
+version = "0.1.0"
 authors = [
   { name = "idcim", email = "rogermmg@gmail.com" },
 ]
